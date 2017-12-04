@@ -1,46 +1,3 @@
-var estado = 0;
-var music;
-var INTRO = 1;
-var JUEGO = 2;
-var OUTRO = 3;
-var OVER = 4;
-var estado1 = 0;
-var estado2 = 0;
-var estado3 = 0;
-var tiempo = 0;
-var colorFondo = 100;
-//var gotas
-var gotas = [];
-var numGotas = 600;
-//Pocision tejado
-var posicion = [];
-var numPosicion = 30;
-//imagenes
-var fondo;
-var teja;
-var caucho_1;
-var caucho_1s;
-var caucho_2;
-var caucho_2s;
-var caucho_3;
-var caucho_3s;
-var flor_1;
-var flor_1s;
-var flor_2;
-var flor_2s;
-var flor_3;
-var flor_3s;
-var monstera_1;
-var monstera_1s;
-var monstera_2;
-var monstera_2s;
-var monstera_3;
-var monstera_3s;
-//Contadores
-var contador1 = 0;
-var contador2 = 0;
-var contador3 = 0;
-
 function preload() {
   fondo = loadImage("Imagenes/Fondo.png");
   teja = loadImage("Imagenes/techo.png");
@@ -74,9 +31,7 @@ function setup() {
   for (var i = 0; i < numGotas; i = i + 1) {
     gotas[i] = new Gota();
   }
-  for (var j = 0; j < numPosicion; j = j + 1) {
-    posicion[j] = new Posicion();
-  }
+  
 }
 
 function draw() {
@@ -126,10 +81,10 @@ function draw() {
       if (gotas[i].y > windowHeight * 11 / 12) {
         gotas[i].y = random(0, 10);
       }
-      var distancia1 = dist(mouseX - 10, height / 4, gotas[i].x, gotas[i].y);
-      var distancia2 = dist(mouseX +20, height / 4, gotas[i].x, gotas[i].y);
-      var distancia3 = dist(mouseX + 50, height / 4, gotas[i].x, gotas[i].y);
-      var distancia4 = dist(mouseX + 70, height / 4, gotas[i].x, gotas[i].y);
+      var distancia1 = dist(touches[0].x - 10, height / 4, gotas[i].x, gotas[i].y);
+      var distancia2 = dist(touches[0].x +20, height / 4, gotas[i].x, gotas[i].y);
+      var distancia3 = dist(touches[0].x + 50, height / 4, gotas[i].x, gotas[i].y);
+      var distancia4 = dist(touches[0].x + 70, height / 4, gotas[i].x, gotas[i].y);
       if (distancia1 < 30 || distancia2 < 30 || distancia3 < 30 || distancia4 < 30) {
         gotas[i].y = random(0, height / 8);
         gotas[i].x = random(0, width);
@@ -138,7 +93,7 @@ function draw() {
       //CONTADORES Y PLANTAS
       //PLANTA1---PLANTA1---PLANTA1---PLANTA1---PLANTA1---
       var distanciaMatera1 = dist(windowWidth / 4, windowHeight * 11 / 12, gotas[i].x, gotas[i].y);
-      image(teja, mouseX - 50, height / 4 - 40, 180, 70);
+      image(teja, touches[0].x - 50, height / 4 - 40, 180, 70);
       if (distanciaMatera1 < 30) {
         contador1 = contador1 + 1;
         gotas[i].y = random(0, 10);
@@ -269,7 +224,7 @@ function draw() {
 
 function mouseDragged() {
   if (estado == INTRO) {} else if (estado == JUEGO) {
-    colorFondo = mouseX;
+  
   }
 }
 
@@ -310,17 +265,3 @@ function Gota() {
 }
 
 
-function Posicion() {
-  this.x = mouseX - 30;
-  this.y = height / 4;
-  this.tamanox = 5;
-  this.tamanoy = 5;
-
-  this.dibujar = function() {
-    fill(0);
-    ellipse(this.x, this.y, this.tamanox, this.tamanoy);
-  }
-  this.mover = function() {
-    this.x = mouseX - 30;
-  }
-}
