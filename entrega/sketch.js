@@ -1,3 +1,46 @@
+var estado = 0;
+var music;
+var INTRO = 1;
+var JUEGO = 2;
+var OUTRO = 3;
+var OVER = 4;
+var estado1 = 0;
+var estado2 = 0;
+var estado3 = 0;
+var tiempo = 0;
+var colorFondo = 100;
+//var gotas
+var gotas = [];
+var numGotas = 600;
+//Pocision tejado
+var posicion = [];
+var numPosicion = 30;
+//imagenes
+var fondo;
+var teja;
+var caucho_1;
+var caucho_1s;
+var caucho_2;
+var caucho_2s;
+var caucho_3;
+var caucho_3s;
+var flor_1;
+var flor_1s;
+var flor_2;
+var flor_2s;
+var flor_3;
+var flor_3s;
+var monstera_1;
+var monstera_1s;
+var monstera_2;
+var monstera_2s;
+var monstera_3;
+var monstera_3s;
+//Contadores
+var contador1 = 0;
+var contador2 = 0;
+var contador3 = 0;
+
 function preload() {
   fondo = loadImage("Imagenes/Fondo.png");
   teja = loadImage("Imagenes/techo.png");
