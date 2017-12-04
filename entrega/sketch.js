@@ -74,11 +74,14 @@ function setup() {
   for (var i = 0; i < numGotas; i = i + 1) {
     gotas[i] = new Gota();
   }
-  
+  for (var j = 0; j < numPosicion; j = j + 1) {
+    posicion[j] = new Posicion();
+  }
 }
 
 function draw() {
   background(170, 146, 57);
+  tiempo=0;
   if (music.isPlaying()) { // .isPlaying() returns a boolean
 
   } else {
@@ -88,6 +91,7 @@ function draw() {
     contador1 = 0;
     contador2 = 0;
     contador3 = 0;
+    tiempo=tiempo+1;
     background(fondo);
     fill(128, 112, 21);
     noStroke();
@@ -106,6 +110,9 @@ function draw() {
 
     text("-Deja crecer las plantas hasta que lleguen a su etapa ad", width * 1 / 8, height * 4 / 8);
     text("-¡Tambien se pueden ahogar!", width * 1 / 8, height * 5 / 8);
+  if(millis(tiempo)>6000){
+   estado=JUEGO; 
+  }
   }
 
   //INICIA EL JUEGO!  INICIA EL JUEGO! INICIA EL JUEGO! INICIA EL JUEGO! INICIA EL JUEGO!
@@ -124,10 +131,10 @@ function draw() {
       if (gotas[i].y > windowHeight * 11 / 12) {
         gotas[i].y = random(0, 10);
       }
-      var distancia1 = dist(touches[0].x - 10, height / 4, gotas[i].x, gotas[i].y);
-      var distancia2 = dist(touches[0].x +20, height / 4, gotas[i].x, gotas[i].y);
-      var distancia3 = dist(touches[0].x + 50, height / 4, gotas[i].x, gotas[i].y);
-      var distancia4 = dist(touches[0].x + 70, height / 4, gotas[i].x, gotas[i].y);
+      var distancia1 = dist(mouseX - 10, height / 4, gotas[i].x, gotas[i].y);
+      var distancia2 = dist(mouseX, +20, height / 4, gotas[i].x, gotas[i].y);
+      var distancia3 = dist(mouseX + 50, height / 4, gotas[i].x, gotas[i].y);
+      var distancia4 = dist(mouseX + 70, height / 4, gotas[i].x, gotas[i].y);
       if (distancia1 < 30 || distancia2 < 30 || distancia3 < 30 || distancia4 < 30) {
         gotas[i].y = random(0, height / 8);
         gotas[i].x = random(0, width);
@@ -136,7 +143,7 @@ function draw() {
       //CONTADORES Y PLANTAS
       //PLANTA1---PLANTA1---PLANTA1---PLANTA1---PLANTA1---
       var distanciaMatera1 = dist(windowWidth / 4, windowHeight * 11 / 12, gotas[i].x, gotas[i].y);
-      image(teja, touches[0].x - 50, height / 4 - 40, 180, 70);
+      image(teja, mouseX - 50, height / 4 - 40, 180, 70);
       if (distanciaMatera1 < 30) {
         contador1 = contador1 + 1;
         gotas[i].y = random(0, 10);
@@ -148,7 +155,7 @@ function draw() {
         image(caucho_1, windowWidth / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
       } else if (contador1 < 90) {
         image(caucho_2s, windowWidth / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
-      } else if (contador1 > 60 && contador1 < 120) {
+      } else if (contador1 < 120) {
 
         image(caucho_2, windowWidth / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
 
@@ -160,10 +167,10 @@ function draw() {
         estado1 = 1;
 
       }
-      if (contador1 > 180) {
+      else if (contador1 < 20000) {
 
         image(caucho_3s, windowWidth / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
-
+estado1 = 1;
       }
       var distanciaMatera2 = dist(windowWidth / 2, windowHeight * 11 / 12, gotas[i].x, gotas[i].y);
 
@@ -178,17 +185,17 @@ function draw() {
 
       } else if (contador2 < 60) {
         image(flor_2s, windowWidth * 3 / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
-      } else if (contador2 > 40 && contador2 < 100) {
+      } else if (contador2 < 100) {
         image(flor_2, windowWidth * 3 / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
 
       } else if (contador2 < 115) {
         image(flor_3s, windowWidth * 3 / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
-      } else if (contador2 > 100 && contador2 < 150) {
+      } else if (contador2 < 145) {
         image(flor_3, windowWidth * 3 / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
         estado2 = 1;
-      } else if (contador2 > 160) {
+      } else if (contador2 > 165) {
         image(flor_3s, windowWidth * 3 / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
-
+estado2 = 1;
       }
 
       //PLANTA3----PLANTA3----PLANTA3----PLANTA3----PLANTA3----
@@ -208,18 +215,18 @@ function draw() {
       } else if (contador3 < 55) {
         image(monstera_2s, windowWidth * 7 / 8, windowHeight * 11 / 12, -windowWidth / 6, -200);
 
-      } else if (contador3 > 40 && contador2 < 90) {
+      } else if (contador3 < 90) {
         image(monstera_2, windowWidth * 7 / 8, windowHeight * 11 / 12, -windowWidth / 6, -200);
 
       } else if (contador3 < 110) {
         image(monstera_3s, windowWidth * 7 / 8, windowHeight * 11 / 12, -windowWidth / 6, -200);
 
-      } else if (contador3 > 90 && contador2 < 140) {
+      } else if (contador3 < 150) {
         image(monstera_3, windowWidth * 7 / 8, windowHeight * 11 / 12, -windowWidth / 6, -200);
         estado3 = 1;
-      } else if (contador3 > 140) {
+      } else if (contador3 > 150) {
         image(monstera_3s, windowWidth * 7 / 8, windowHeight * 11 / 12, -windowWidth / 6, -200);
-
+estado3 = 1;
       }
     }
     //image(flor_1,windowWidth*3/8,windowHeight*11/12,windowWidth/6,-200);
@@ -234,6 +241,7 @@ function draw() {
   //ACABA EL JUEGO!!ACABA EL JUEGO!!ACABA EL JUEGO!!ACABA EL JUEGO!!ACABA EL JUEGO!!ACABA EL JUEGO!!
   else if (estado == OUTRO) {
     if (estado1 == 1 && estado2 == 1 && estado3 == 1) {
+      tiempo=0
       background(fondo);
       textAlign(CENTER);
       textSize(60);
@@ -245,7 +253,10 @@ function draw() {
       image(flor_2, windowWidth * 4 / 9, windowHeight * 13 / 14, windowWidth / 6, -200);
       image(caucho_3, windowWidth / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
       image(caucho_3, windowWidth * 3 / 10, windowHeight * 14 / 15, windowWidth / 6, -200);
-      if (contador1 > 180 || contador2 > 160 || contador3 > 140) {
+      if(mouseIsPressed==true){
+       estado=INTRO; 
+      }
+      if (contador1 > 210 || contador2 > 165 || contador3 > 140) {
         background(fondo);
         textAlign(CENTER);
         textSize(60);
@@ -256,6 +267,9 @@ function draw() {
         image(flor_3s, windowWidth * 3 / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
         //image(flor_2s,windowWidth*3/8,windowHeight*13/14,windowWidth/6,-200);
         image(caucho_3s, windowWidth / 8, windowHeight * 11 / 12, windowWidth / 6, -200);
+      if(mouseIsPressed==true){
+       estado=INTRO; 
+     }
       }
     }
 
@@ -267,7 +281,7 @@ function draw() {
 
 function mouseDragged() {
   if (estado == INTRO) {} else if (estado == JUEGO) {
-  
+    colorFondo = mouseX;
   }
 }
 
@@ -307,4 +321,19 @@ function Gota() {
   }
 }
 
+
+function Posicion() {
+  this.x = mouseX - 30;
+  this.y = height / 4;
+  this.tamanox = 5;
+  this.tamanoy = 5;
+
+  this.dibujar = function() {
+    fill(0);
+    ellipse(this.x, this.y, this.tamanox, this.tamanoy);
+  }
+  this.mover = function() {
+    this.x = mouseX - 30;
+  }
+}
 
