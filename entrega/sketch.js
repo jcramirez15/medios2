@@ -111,7 +111,7 @@ function draw() {
 
     text("-Ayuda a crecer a las plantas", width * 1 / 8, height * 4 / 8);
     text("-¡Cuidado se ahogan!", width * 1 / 8, height * 5 / 8);
- if(mouseClicked()==true){
+ if(mouseIsPressed==true){
        estado=JUEGO; 
      }
   }
