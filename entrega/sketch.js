@@ -108,8 +108,8 @@ function draw() {
     textSize(20);
     textAlign(LEFT);
 
-    text("-Deja crecer las plantas hasta que lleguen a su etapa ad", width * 1 / 8, height * 4 / 8);
-    text("-¡Tambien se pueden ahogar!", width * 1 / 8, height * 5 / 8);
+    text("-Ayuda a crecer a las plantas", width * 1 / 8, height * 4 / 8);
+    text("-¡Cuidado se ahogan!", width * 1 / 8, height * 5 / 8);
   if(millis(tiempo)>6000){
    estado=JUEGO; 
   }
@@ -243,7 +243,7 @@ estado3 = 1;
     if (estado1 == 1 && estado2 == 1 && estado3 == 1) {
       tiempo=0
       background(fondo);
-      textAlign(CENTER);
+      textAlign(TOP);
       textSize(60);
       fill(212, 197, 106);
       text("¡¡Felicidades!!", width / 2, height / 2);
@@ -258,7 +258,7 @@ estado3 = 1;
       }
       if (contador1 > 210 || contador2 > 165 || contador3 > 140) {
         background(fondo);
-        textAlign(CENTER);
+        textAlign(TOP);
         textSize(60);
         fill(212, 197, 106);
         text("¡¡Las mataste!!", width / 2, height / 2);
