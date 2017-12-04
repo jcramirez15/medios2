@@ -91,6 +91,7 @@ function draw() {
     contador1 = 0;
     contador2 = 0;
     contador3 = 0;
+    MOUSEiSpRESSED=false;
     tiempo=tiempo+1;
     background(fondo);
     fill(128, 112, 21);
@@ -319,7 +320,7 @@ function Gota() {
     }
     this.moverse = function() {
       this.x = this.x + random(-2, 2);
-      this.y = this.y + random(2, 8);
+      this.y = this.y + random(2, 10);
     }
   }
 }
