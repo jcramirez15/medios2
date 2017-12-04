@@ -1,5 +1,5 @@
 var estado = 0;
-var músic;
+var music;
 var INTRO = 1;
 var JUEGO = 2;
 var OUTRO = 3;
