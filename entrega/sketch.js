@@ -42,28 +42,28 @@ var contador2 = 0;
 var contador3 = 0;
 
 function preload() {
-  fondo = loadImage("Fondo.png");
-  teja = loadImage("techo.png");
+  fondo = loadImage("Imagenes/Fondo.png");
+  teja = loadImage("Imagenes/techo.png");
 
-  caucho_1 = loadImage("caucho_1.png");
-  caucho_1s = loadImage("caucho_1_s.png");
-  caucho_2 = loadImage("caucho_2.png");
-  caucho_2s = loadImage("caucho_2_s.png");
-  caucho_3 = loadImage("caucho_3.png");
-  caucho_3s = loadImage("caucho_3_s.png");
-  flor_1 = loadImage("flor_1.png");
-  flor_1s = loadImage("flor_1_s.png");
-  flor_2 = loadImage("flor_2.png");
-  flor_2s = loadImage("flor_2_s.png");
-  flor_3 = loadImage("flor_3.png");
-  flor_3s = loadImage("flor_3_s.png");
-  monstera_1 = loadImage("Monstera_1.png");
-  monstera_1s = loadImage("Monstera_1_s.png");
-  monstera_2 = loadImage("Monstera_2.png");
-  monstera_2s = loadImage("Monstera_2_s.png");
-  monstera_3 = loadImage("Monstera_3.png");
-  monstera_3s = loadImage("Monstera_3_s.png");
-  music = loadSound("shh_nes.mp3");
+  caucho_1 = loadImage("Imagenes/caucho_1.png");
+  caucho_1s = loadImage("Imagenes/caucho_1_s.png");
+  caucho_2 = loadImage("Imagenes/caucho_2.png");
+  caucho_2s = loadImage("Imagenes/caucho_2_s.png");
+  caucho_3 = loadImage("Imagenes/caucho_3.png");
+  caucho_3s = loadImage("Imagenes/caucho_3_s.png");
+  flor_1 = loadImage("Imagenes/flor_1.png");
+  flor_1s = loadImage("Imagenes/flor_1_s.png");
+  flor_2 = loadImage("Imagenes/flor_2.png");
+  flor_2s = loadImage("Imagenes/flor_2_s.png");
+  flor_3 = loadImage("Imagenes/flor_3.png");
+  flor_3s = loadImage("Imagenes/flor_3_s.png");
+  monstera_1 = loadImage("Imagenes/Monstera_1.png");
+  monstera_1s = loadImage("Imagenes/Monstera_1_s.png");
+  monstera_2 = loadImage("Imagenes/Monstera_2.png");
+  monstera_2s = loadImage("Imagenes/Monstera_2_s.png");
+  monstera_3 = loadImage("Imagenes/Monstera_3.png");
+  monstera_3s = loadImage("Imagenes/Monstera_3_s.png");
+  music = loadSound("Imagenes/shh_nes.mp3");
 }
 
 function setup() {
