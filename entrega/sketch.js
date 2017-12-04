@@ -113,8 +113,6 @@ function draw() {
     text("-¡Cuidado se ahogan!", width * 1 / 8, height * 5 / 8);
  if(mouseIsReleased()==true){
        estado=JUEGO; 
-     }else{
-      estado=INTRO; 
      }
   }
 
