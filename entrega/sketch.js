@@ -282,6 +282,7 @@ estado3 = 1;
 function mouseDragged() {
   if (estado == INTRO) {} else if (estado == JUEGO) {
     colorFondo = mouseX;
+    return=false;
   }
 }
 
