@@ -91,7 +91,7 @@ function draw() {
     contador1 = 0;
     contador2 = 0;
     contador3 = 0;
-    MOUSEiSpRESSED=false;
+    MouseIsPressed=false;
     tiempo=tiempo+1;
     background(fondo);
     fill(128, 112, 21);
