@@ -127,7 +127,7 @@ function draw() {
         gotas[i].y = random(0, 10);
       }
       var distancia1 = dist(mouseX - 10, height / 4, gotas[i].x, gotas[i].y);
-      var distancia2 = dist(mouseX, +20, height / 4, gotas[i].x, gotas[i].y);
+      var distancia2 = dist(mouseX +20, height / 4, gotas[i].x, gotas[i].y);
       var distancia3 = dist(mouseX + 50, height / 4, gotas[i].x, gotas[i].y);
       var distancia4 = dist(mouseX + 70, height / 4, gotas[i].x, gotas[i].y);
       if (distancia1 < 30 || distancia2 < 30 || distancia3 < 30 || distancia4 < 30) {
